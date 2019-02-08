@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nginx:
+    build: docker-nginx
+    ports:
+    - "8012:80"
+    volumes:
+    - /run/php/:/run/php/
+    - /tmp/php-files:/var/www/html
+  php-fpm:
+    build: docker-fpm
+    volumes:
+    - /run/php/:/run/php/
+    - /tmp/php-files:/var/www/html
